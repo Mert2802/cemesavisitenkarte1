@@ -13,7 +13,6 @@
     <style>
         /* --- 1. VARIABLEN & DESIGN SYSTEM --- */
         :root {
-            /* Farben */
             --c-primary: #cc0000;
             --c-primary-dark: #a30000;
             --c-dark: #0a0a0a;
@@ -22,13 +21,11 @@
             --c-white: #ffffff;
             --c-border: #e5e5e5;
 
-            /* Abstände & Größen */
             --w-container: 1100px;
             --h-header: 70px;
             --p-section: 100px;
             --p-mobile: 60px;
             
-            /* Übergänge */
             --trans-std: 0.3s ease;
         }
 
@@ -43,6 +40,7 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            overflow-x: hidden;
         }
 
         body {
@@ -52,6 +50,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             padding-top: var(--h-header);
+            width: 100%;
         }
 
         a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
@@ -67,7 +66,7 @@
             color: var(--c-dark);
         }
 
-        h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 20px; }
+        h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); margin-bottom: 20px; }
         h2 { font-size: clamp(1.8rem, 4vw, 2.25rem); margin-bottom: 40px; }
         h3 { font-size: 1.25rem; margin-bottom: 10px; }
 
@@ -117,11 +116,13 @@
             max-width: var(--w-container);
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         section {
             padding: var(--p-section) 0;
             border-bottom: 1px solid var(--c-border);
+            width: 100%;
         }
 
         /* --- 6. HEADER & NAV --- */
@@ -190,7 +191,6 @@
         .mobile-nav ul { text-align: center; display: flex; flex-direction: column; gap: 30px; }
         .mobile-nav a { font-size: 1.5rem; font-weight: 600; color: var(--c-dark); }
 
-        /* Hamburger Animation */
         body.nav-open .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         body.nav-open .hamburger span:nth-child(2) { opacity: 0; }
         body.nav-open .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
@@ -256,14 +256,15 @@
         }
 
         .big-mail {
-            font-size: clamp(1.2rem, 5vw, 2.5rem);
+            font-size: clamp(1rem, 5vw, 2.5rem);
             font-weight: 700;
             color: var(--c-white);
             border-bottom: 2px solid var(--c-primary);
             display: inline-block;
             margin: 20px 0;
-            white-space: nowrap;
             text-decoration: none;
+            word-wrap: break-word;
+            max-width: 100%;
         }
         .big-mail:hover { color: var(--c-primary); border-color: var(--c-white); }
         
@@ -276,17 +277,20 @@
             color: #666;
             padding: 40px 0;
             font-size: 0.85rem;
+            width: 100%;
         }
-.footer-links {
-            display: flex;
-            align-items: center; /* Das zentriert alles vertikal perfekt */
-        }
+
         .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;}
         
-        /* Styling für Footer Links und Text */
+        .footer-links {
+            display: flex;
+            align-items: center; 
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
         .footer-links a, 
         .footer-links span { 
-            margin-left: 20px; 
             cursor: pointer; 
             transition: 0.2s; 
             color: #666;
@@ -298,21 +302,20 @@
         .footer-links a:hover, 
         .footer-links span:hover { color: var(--c-white); }
 
-        /* NEU: Styling für Footer Logos */
+        /* CSS CHANGE: Keine feste Höhe mehr, nur noch Auto-Width gegen Verzerrung */
         .footer-logo {
-            height: 50px; /* Höhe anpassen je nach Logo */
+            /* height: ...px; <-- HIER NICHTS FESTLEGEN */
             width: auto;
+            max-width: 100%;
+            object-fit: contain;
             vertical-align: middle;
-            /* Macht die Logos standardmäßig grau und etwas dunkler */
             filter: grayscale(1) brightness(0.7);
             transition: var(--trans-std);
         }
 
-        /* Beim Hover über den Link wird das Logo weiß/farbig */
         .footer-links a:hover .footer-logo {
             filter: grayscale(0) brightness(1);
         }
-
 
         /* --- 12. MODALS --- */
         .modal {
@@ -375,8 +378,13 @@
             .address-box { margin-top: 20px; }
 
             .footer-content { flex-direction: column; text-align: center; }
-            .footer-links a, 
-            .footer-links span { margin: 10px; } /* Etwas mehr Abstand auf Mobile */
+            
+            .footer-links {
+                justify-content: center;
+                flex-direction: column;
+                gap: 25px;
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
@@ -547,20 +555,18 @@
                     <img src="logo-suites.png" 
                          alt="Suites" 
                          class="footer-logo" 
-                         style="height: 90px;"> 
-                </a>
+                         style="height: 70px;"> </a>
 
                 <a href="https://primetimeautomations.de" target="_blank">
                     <img src="logo-automations.png" 
                          alt="Automations" 
                          class="footer-logo" 
-                         style="height: 50px;"> 
-                </a>
+                         style="height: 40px;"> </a>
                 
                 <span onclick="openModal('impressum')">Impressum</span>
                 <span onclick="openModal('datenschutz')">Datenschutz</span>
             </div>
-            </div>
+        </div>
     </footer>
 
     <div id="modal-impressum" class="modal">
@@ -645,4 +651,3 @@
     </script>
 </body>
 </html>
-
