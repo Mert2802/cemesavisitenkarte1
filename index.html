@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CEMESA Immobilien | Investment & Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. DESIGN SYSTEM & VARIABLEN --- */
+        :root {
+            /* Farben: Striktes Rot/Schwarz/Weiß Schema */
+            --color-primary: #cc0000;    /* Seriöses Dunkelrot */
+            --color-dark: #0a0a0a;       /* Fast Schwarz */
+            --color-text: #444444;       /* Dunkelgrau für Lesbarkeit */
+            --color-light: #f4f4f5;      /* Hellgrauer Hintergrund */
+            --color-white: #ffffff;
+            --border-color: #e5e5e5;
+
+            /* Abstände & Layout */
+            --container-width: 1100px;
+            --header-height: 70px;
+            --section-padding: 100px;
+            --mobile-padding: 60px;
+        }
+
+        /* --- 2. RESET & BASIS --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent; /* Entfernt blaues Flackern auf Mobile */
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px; /* Basisgröße */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-white);
+            color: var(--color-dark);
+            line-height: 1.6;
+            overflow-x: hidden; /* Verhindert seitliches Scrollen auf Mobile */
+            padding-top: var(--header-height); /* Platz für fixierten Header */
+        }
+
+        a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; }
+
+        /* --- 3. TYPOGRAFIE (Responsive) --- */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: 3.5rem; color: var(--color-dark); margin-bottom: 20px; }
+        h2 { font-size: 2.25rem; margin-bottom: 40px; }
+        h3 { font-size: 1.25rem; margin-bottom: 10px; }
+
+        .subtitle {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        p { color: var(--color-text); margin-bottom: 20px; }
+
+        /* --- 4. BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn:hover { background-color: #a30000; transform: translateY(-2px); }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--color-dark);
+            color: var(--color-dark);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover { background-color: var(--color-dark); color: var(--color-white); }
+
+        /* --- 5. LAYOUT KLASSEN --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px; /* Seitenabstand Mobile & Desktop */
+        }
+
+        section {
+            padding: var(--section-padding) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* --- 6. HEADER & NAV --- */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+        .logo span { color: var(--color-primary); }
+
+        nav ul { display: flex; gap: 30px; }
+        nav a { font-size: 0.9rem; font-weight: 500; color: var(--color-text); }
+        nav a:hover { color: var(--color-primary); }
+
+        /* --- 7. HERO SECTION --- */
+        #home {
+            min-height: 85vh; /* Etwas weniger als Fullscreen für Dynamik */
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, #ffffff 40%, rgba(255,255,255,0.8) 100%),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-text { max-width: 600px; }
+        .hero-lead { font-size: 1.2rem; font-weight: 300; line-height: 1.6; margin-bottom: 40px; }
+
+        /* --- 8. ANKAUFSPROFIL (Clean List) --- */
+        .criteria-list {
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        .criteria-item {
+            display: grid;
+            grid-template-columns: 200px 1fr; /* Links Label, Rechts Inhalt */
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s;
+        }
+
+        .criteria-item:hover { background-color: #fafafa; }
+        .criteria-item h3 { color: var(--color-dark); margin: 0; font-size: 1.1rem; }
+        
+        .criteria-content ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+        
+        .criteria-content ul li::before {
+            content: '•';
+            color: var(--color-primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- 9. FAQ --- */
+        .faq-wrapper { max-width: 800px; }
+        
+        .faq-item { border-bottom: 1px solid var(--border-color); }
+        
+        .faq-trigger {
+            width: 100%;
+            text-align: left;
+            padding: 25px 0;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-item.active .faq-trigger { color: var(--color-primary); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .faq-answer p { padding-bottom: 25px; margin: 0; opacity: 0.8; }
+
+        /* --- 10. KONTAKT --- */
+        #kontakt { background-color: var(--color-dark); color: var(--color-white); border: none; }
+        #kontakt h2, #kontakt p, #kontakt .subtitle { color: var(--color-white); opacity: 0.9; }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .big-mail {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-white);
+            border-bottom: 2px solid var(--color-primary);
+            display: inline-block;
+            margin: 20px 0;
+            word-break: break-all; /* Wichtig für Handy! */
+        }
+        
+        .address-box { color: #999; font-size: 1rem; line-height: 1.8; }
+
+        /* --- 11. FOOTER --- */
+        footer {
+            background-color: #000;
+            color: #666;
+            padding: 40px 0;
+            font-size: 0.85rem;
+        }
+        
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-links span { margin-left: 20px; cursor: pointer; transition: 0.2s; }
+        .footer-links span:hover { color: var(--color-white); }
+
+        /* --- 12. MODALS (Impressum) --- */
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+            z-index: 2000; display: none; opacity: 0; transition: opacity 0.3s;
+            justify-content: center; align-items: center; padding: 20px;
+        }
+        
+        .modal.open { display: flex; opacity: 1; }
+        
+        .modal-box {
+            background: #fff; width: 100%; max-width: 600px;
+            padding: 40px; border-top: 4px solid var(--color-primary);
+            position: relative; max-height: 80vh; overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .close-modal {
+            position: absolute; top: 15px; right: 20px;
+            font-size: 2rem; cursor: pointer; color: var(--color-primary);
+            line-height: 1;
+        }
+
+        /* --- 13. MOBILE OPTIMIERUNG (DER WICHTIGE TEIL) --- */
+        @media (max-width: 768px) {
+            
+            /* Typography kleiner skalieren */
+            html { font-size: 15px; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            
+            /* Sektionen Abstände verringern */
+            section { padding: var(--mobile-padding) 0; }
+            
+            /* Header */
+            nav { display: none; } /* Menü auf Handy ausblenden (einfachere UX für One-Pager) */
+            .logo { flex-grow: 1; }
+            
+            /* Hero - Bild und Text anpassen */
+            #home {
+                background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%),
+                            url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+                background-position: center;
+                text-align: left;
+                align-items: center;
+                padding-top: 20px;
+            }
+
+            .hero-btns {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+            
+            .btn, .btn-outline { width: 100%; text-align: center; margin: 0; }
+
+            /* Ankaufsprofil Stacken */
+            .criteria-item {
+                grid-template-columns: 1fr; /* Alles untereinander */
+                gap: 15px;
+                padding: 30px 0;
+            }
+
+            .criteria-item h3 {
+                border-left: 3px solid var(--color-primary);
+                padding-left: 10px;
+            }
+
+            /* Kontakt Stacken */
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .big-mail { font-size: 1.5rem; }
+
+            /* Footer Stacken */
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-links span { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">CEMESA <span style="color:var(--color-primary)">IMMOBILIEN</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#ankauf">Ankaufsprofil</a></li>
+                    <li><a href="#faq">Prozess</a></li>
+                    <li><a href="#kontakt" style="color:var(--color-primary); font-weight:600;">Kontakt</a></li>
+                </ul>
+            </nav>
+            </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <div class="hero-text">
+                <span class="subtitle">Investment Group</span>
+                <h1>Transaktionssicherheit durch Kapitalstärke.</h1>
+                <p class="hero-lead">
+                    Wir erwerben Wohn- und Geschäftshäuser in NRW. 
+                    Schnelle Prüfung. Professionelle Abwicklung.
+                </p>
+                <div class="hero-btns">
+                    <a href="#ankauf" class="btn">Ankaufsprofil</a>
+                    <a href="#kontakt" class="btn btn-outline">Angebot senden</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ankauf">
+        <div class="container">
+            <span class="subtitle">Akquisitionskriterien</span>
+            <h2>Ankaufsprofil</h2>
+            
+            <div class="criteria-list">
+                <div class="criteria-item">
+                    <h3>Asset Klassen</h3>
+                    <div class="criteria-content">
+                        <ul>
+                            <li>Mehrfamilienhäuser (ab 6 Einheiten)</li>
+                            <li>Wohn- und Geschäftshäuser</li>
+                            <li>Wohnanlagen und Siedlungen</li>
+                            <li>Grundstücke (Baurecht für Wohnen)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="criteria-item">
+                    <h3>Standorte</h3>
+                    <div class="criteria-content">
+                        <ul>
+                            <li>Metropolregion Rhein-Ruhr (Düsseldorf, Köln, Essen)</li>
+                            <li>NRW A-Städte & starke B-Städte</li>
+                            <li>Gute Mikrolagen & Entwicklungslagen</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="criteria-item">
+                    <h3>Deal Struktur</h3>
+                    <div class="criteria-content">
+                        <ul>
+                            <li>Volumen: 500k EUR bis 20 Mio. EUR</li>
+                            <li>Asset Deal & Share Deal</li>
+                            <li>Auch Objekte mit Sanierungsstau (Value-Add)</li>
+                            <li>Schnelle Abwicklung ohne Finanzierungsvorbehalt</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <span class="subtitle">Information</span>
+            <h2>Häufige Fragen</h2>
+            
+            <div class="faq-wrapper">
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        Wie schnell erfolgt die Prüfung?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Wir garantieren eine erste qualifizierte Rückmeldung oder Indikation innerhalb von 48 Stunden nach Eingang der Basisunterlagen (Mieterliste, Flurkarte, Fotos).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        Arbeiten Sie mit Maklern?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ja, wir pflegen partnerschaftliche Verhältnisse zu Maklern. Bei erfolgreichem Abschluss honorieren wir Angebote marktüblich und gewährleisten Kundenschutz.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        Ist die Finanzierung gesichert?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Dank starker Eigenkapitalbasis agieren wir weitgehend unabhängig von Bankfinanzierungen im Ankaufsprozess. Kaufverträge schließen wir in der Regel ohne Finanzierungsvorbehalt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <span class="subtitle" style="color:#aaa">Deal Flow</span>
+                    <h2>Angebot einreichen</h2>
+                    <p style="color:#ccc">Senden Sie uns Ihr Exposé direkt digital.</p>
+                    <a href="mailto:ankauf@cemesa-immobilien.de" class="big-mail">ankauf@cemesa.de</a>
+                </div>
+                <div style="align-self: end;">
+                    <div class="address-box">
+                        <strong>CEMESA Immobilien GmbH</strong><br>
+                        Musterstraße 101<br>
+                        40213 Düsseldorf<br><br>
+                        T: +49 211 1234567
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div>&copy; 2024 CEMESA Immobilien.</div>
+            <div class="footer-links">
+                <span onclick="openModal('impressum')">Impressum</span>
+                <span onclick="openModal('datenschutz')">Datenschutz</span>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-impressum" class="modal">
+        <div class="modal-box">
+            <span class="close-modal" onclick="closeModal('impressum')">&times;</span>
+            <h3>Impressum</h3>
+            <br>
+            <p><strong>CEMESA Immobilien GmbH</strong><br>Musterstraße 101, 40213 Düsseldorf<br><br>Geschäftsführer: Max Mustermann<br>Handelsregister: Amtsgericht Düsseldorf, HRB 00000<br>USt-IdNr.: DE 123456789</p>
+        </div>
+    </div>
+
+    <div id="modal-datenschutz" class="modal">
+        <div class="modal-box">
+            <span class="close-modal" onclick="closeModal('datenschutz')">&times;</span>
+            <h3>Datenschutz</h3>
+            <br>
+            <p>Diese Webseite dient als Visitenkarte. Wir speichern keine personenbezogenen Daten von Besuchern (keine Cookies, kein Tracking). Daten, die Sie uns per E-Mail senden, werden vertraulich behandelt.</p>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Logik
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const trigger = item.querySelector('.faq-trigger');
+            const answer = item.querySelector('.faq-answer');
+            
+            trigger.addEventListener('click', () => {
+                // Toggle active class
+                const isActive = item.classList.contains('active');
+                
+                // Schließe alle anderen (für cleanen Look)
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Modal Logik
+        function openModal(id) {
+            document.getElementById('modal-' + id).classList.add('open');
+            document.body.style.overflow = 'hidden'; // Scrollen verhindern
+        }
+        
+        function closeModal(id) {
+            document.getElementById('modal-' + id).classList.remove('open');
+            document.body.style.overflow = 'auto'; // Scrollen wieder erlauben
+        }
+
+        // Schließen bei Klick auf Hintergrund
+        window.onclick = function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
