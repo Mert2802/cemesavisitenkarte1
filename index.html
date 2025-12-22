@@ -2,63 +2,73 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="CEMESA Immobilien - Ankauf von Wohn- und Geschäftshäusern in NRW. Kapitalstark und Transaktionssicher.">
     <title>CEMESA Immobilien | Investment & Development</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        /* --- 1. DESIGN SYSTEM & VARIABLEN --- */
-        :root {
-            /* Farben: Striktes Rot/Schwarz/Weiß Schema */
-            --color-primary: #cc0000;    /* Seriöses Dunkelrot */
-            --color-dark: #0a0a0a;       /* Fast Schwarz */
-            --color-text: #444444;       /* Dunkelgrau für Lesbarkeit */
-            --color-light: #f4f4f5;      /* Hellgrauer Hintergrund */
-            --color-white: #ffffff;
-            --border-color: #e5e5e5;
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-            /* Abstände & Layout */
-            --container-width: 1100px;
-            --header-height: 70px;
-            --section-padding: 100px;
-            --mobile-padding: 60px;
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect x=%220%22 y=%220%22 width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23cc0000%22/><text x=%2250%25%22 y=%2255%25%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2240%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>C</text></svg>">
+
+    <style>
+        /* --- 1. VARIABLEN & DESIGN SYSTEM --- */
+        :root {
+            /* Farben */
+            --c-primary: #cc0000;
+            --c-primary-dark: #a30000;
+            --c-dark: #0a0a0a;
+            --c-text: #444444;
+            --c-light: #f4f4f5;
+            --c-white: #ffffff;
+            --c-border: #e5e5e5;
+
+            /* Abstände & Größen */
+            --w-container: 1100px;
+            --h-header: 70px;
+            --p-section: 100px;
+            --p-mobile: 60px;
+            
+            /* Übergänge */
+            --trans-std: 0.3s ease;
         }
 
         /* --- 2. RESET & BASIS --- */
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-tap-highlight-color: transparent; /* Entfernt blaues Flackern auf Mobile */
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px; /* Basisgröße */
+            font-size: 16px;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--color-white);
-            color: var(--color-dark);
+            background-color: var(--c-white);
+            color: var(--c-dark);
             line-height: 1.6;
-            overflow-x: hidden; /* Verhindert seitliches Scrollen auf Mobile */
-            padding-top: var(--header-height); /* Platz für fixierten Header */
+            overflow-x: hidden;
+            padding-top: var(--h-header);
         }
 
         a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
         ul { list-style: none; }
-        img { max-width: 100%; height: auto; }
+        img { max-width: 100%; height: auto; display: block; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-        /* --- 3. TYPOGRAFIE (Responsive) --- */
+        /* --- 3. TYPOGRAFIE --- */
         h1, h2, h3 {
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: -0.02em;
+            color: var(--c-dark);
         }
 
-        h1 { font-size: 3.5rem; color: var(--color-dark); margin-bottom: 20px; }
-        h2 { font-size: 2.25rem; margin-bottom: 40px; }
+        h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 20px; }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.25rem); margin-bottom: 40px; }
         h3 { font-size: 1.25rem; margin-bottom: 10px; }
 
         .subtitle {
@@ -66,57 +76,62 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--color-primary);
+            color: var(--c-primary);
             font-weight: 600;
             margin-bottom: 15px;
         }
 
-        p { color: var(--color-text); margin-bottom: 20px; }
+        p { color: var(--c-text); margin-bottom: 20px; }
+
+        .text-highlight { color: var(--c-primary); }
+        .text-white { color: var(--c-white) !important; }
+        .text-dim { color: rgba(255,255,255,0.7); }
 
         /* --- 4. BUTTONS --- */
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
             padding: 16px 32px;
-            background-color: var(--color-primary);
-            color: var(--color-white);
+            background-color: var(--c-primary);
+            color: var(--c-white);
             font-weight: 500;
             font-size: 0.95rem;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s ease, transform 0.2s ease;
+            border-radius: 4px;
+            transition: background var(--trans-std), transform 0.2s;
         }
 
-        .btn:hover { background-color: #a30000; transform: translateY(-2px); }
-        
+        .btn:hover { background-color: var(--c-primary-dark); transform: translateY(-2px); }
+
         .btn-outline {
             background-color: transparent;
-            border: 1px solid var(--color-dark);
-            color: var(--color-dark);
+            border: 1px solid var(--c-dark);
+            color: var(--c-dark);
             margin-left: 10px;
         }
 
-        .btn-outline:hover { background-color: var(--color-dark); color: var(--color-white); }
+        .btn-outline:hover { background-color: var(--c-dark); color: var(--c-white); }
 
-        /* --- 5. LAYOUT KLASSEN --- */
+        /* --- 5. LAYOUT --- */
         .container {
-            max-width: var(--container-width);
+            max-width: var(--w-container);
             margin: 0 auto;
-            padding: 0 20px; /* Seitenabstand Mobile & Desktop */
+            padding: 0 20px;
         }
 
         section {
-            padding: var(--section-padding) 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: var(--p-section) 0;
+            border-bottom: 1px solid var(--c-border);
         }
 
         /* --- 6. HEADER & NAV --- */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
-            height: var(--header-height);
+            height: var(--h-header);
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--c-border);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -135,99 +150,104 @@
             letter-spacing: -0.5px;
             white-space: nowrap;
         }
-        .logo span { color: var(--color-primary); }
 
-        nav ul { display: flex; gap: 30px; }
-        nav a { font-size: 0.9rem; font-weight: 500; color: var(--color-text); }
-        nav a:hover { color: var(--color-primary); }
+        /* Desktop Nav */
+        .desktop-nav ul { display: flex; gap: 30px; }
+        .desktop-nav a { font-size: 0.9rem; font-weight: 500; color: var(--c-text); }
+        .desktop-nav a:hover, .desktop-nav a.active-link { color: var(--c-primary); }
+        .nav-cta { color: var(--c-primary) !important; font-weight: 600 !important; }
+
+        /* Mobile Menu Button */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1100;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--c-dark);
+            transition: var(--trans-std);
+        }
+
+        /* Mobile Nav Menu Overlay */
+        .mobile-nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: var(--c-white);
+            z-index: 1050;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--trans-std);
+        }
+        .mobile-nav.is-open { opacity: 1; pointer-events: all; }
+        .mobile-nav ul { text-align: center; display: flex; flex-direction: column; gap: 30px; }
+        .mobile-nav a { font-size: 1.5rem; font-weight: 600; color: var(--c-dark); }
+
+        /* Hamburger Animation */
+        body.nav-open .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        body.nav-open .hamburger span:nth-child(2) { opacity: 0; }
+        body.nav-open .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
         /* --- 7. HERO SECTION --- */
         #home {
-            min-height: 85vh; /* Etwas weniger als Fullscreen für Dynamik */
+            min-height: 85vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(to right, #ffffff 40%, rgba(255,255,255,0.8) 100%),
+            background: linear-gradient(to right, #ffffff 30%, rgba(255,255,255,0.7) 100%),
                         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
         }
-
-        .hero-text { max-width: 600px; }
+        .hero-text { max-width: 600px; position: relative; z-index: 2; }
         .hero-lead { font-size: 1.2rem; font-weight: 300; line-height: 1.6; margin-bottom: 40px; }
 
-        /* --- 8. ANKAUFSPROFIL (Clean List) --- */
-        .criteria-list {
-            border-top: 1px solid var(--border-color);
-            margin-top: 40px;
-        }
+        /* --- 8. ANKAUFSPROFIL --- */
+        .criteria-list { border-top: 1px solid var(--c-border); margin-top: 40px; }
 
         .criteria-item {
             display: grid;
-            grid-template-columns: 200px 1fr; /* Links Label, Rechts Inhalt */
+            grid-template-columns: 200px 1fr;
             padding: 40px 0;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--c-border);
             transition: background 0.3s;
         }
-
         .criteria-item:hover { background-color: #fafafa; }
-        .criteria-item h3 { color: var(--color-dark); margin: 0; font-size: 1.1rem; }
         
-        .criteria-content ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 8px;
-            color: var(--color-text);
-        }
-        
+        .criteria-content ul li { position: relative; padding-left: 25px; margin-bottom: 8px; color: var(--c-text); }
         .criteria-content ul li::before {
-            content: '•';
-            color: var(--color-primary);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+            content: '•'; color: var(--c-primary);
+            position: absolute; left: 0; font-weight: bold;
         }
 
         /* --- 9. FAQ --- */
         .faq-wrapper { max-width: 800px; }
-        
-        .faq-item { border-bottom: 1px solid var(--border-color); }
-        
+        .faq-item { border-bottom: 1px solid var(--c-border); }
+
         .faq-trigger {
-            width: 100%;
-            text-align: left;
-            padding: 25px 0;
-            background: none;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--color-dark);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Inter', sans-serif;
+            width: 100%; text-align: left; padding: 25px 0;
+            font-size: 1.1rem; font-weight: 600; color: var(--c-dark);
+            display: flex; justify-content: space-between; align-items: center;
         }
-
-        .faq-icon {
-            font-size: 1.5rem;
-            color: var(--color-primary);
-            transition: transform 0.3s ease;
-        }
+        .faq-trigger:hover { color: var(--c-primary); }
         
+        .faq-icon { font-size: 1.5rem; color: var(--c-primary); transition: transform 0.3s ease; }
         .faq-item.active .faq-icon { transform: rotate(45deg); }
-        .faq-item.active .faq-trigger { color: var(--color-primary); }
-
+        
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
+            max-height: 0; overflow: hidden;
             transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
         .faq-answer p { padding-bottom: 25px; margin: 0; opacity: 0.8; }
 
         /* --- 10. KONTAKT --- */
-        #kontakt { background-color: var(--color-dark); color: var(--color-white); border: none; }
-        #kontakt h2, #kontakt p, #kontakt .subtitle { color: var(--color-white); opacity: 0.9; }
+        #kontakt { background-color: var(--c-dark); color: var(--c-white); border: none; }
         
         .contact-grid {
             display: grid;
@@ -236,15 +256,18 @@
         }
 
         .big-mail {
-            font-size: 2.5rem;
+            font-size: clamp(1.2rem, 5vw, 2.5rem);
             font-weight: 700;
-            color: var(--color-white);
-            border-bottom: 2px solid var(--color-primary);
+            color: var(--c-white);
+            border-bottom: 2px solid var(--c-primary);
             display: inline-block;
             margin: 20px 0;
-            word-break: break-all; /* Wichtig für Handy! */
+            white-space: nowrap;
+            text-decoration: none;
         }
+        .big-mail:hover { color: var(--c-primary); border-color: var(--c-white); }
         
+        .phone-link { color: var(--c-white); border-bottom: 1px solid rgba(255,255,255,0.3); }
         .address-box { color: #999; font-size: 1rem; line-height: 1.8; }
 
         /* --- 11. FOOTER --- */
@@ -254,57 +277,79 @@
             padding: 40px 0;
             font-size: 0.85rem;
         }
+.footer-links {
+            display: flex;
+            align-items: center; /* Das zentriert alles vertikal perfekt */
+        }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;}
         
-        .footer-content { display: flex; justify-content: space-between; align-items: center; }
-        .footer-links span { margin-left: 20px; cursor: pointer; transition: 0.2s; }
-        .footer-links span:hover { color: var(--color-white); }
+        /* Styling für Footer Links und Text */
+        .footer-links a, 
+        .footer-links span { 
+            margin-left: 20px; 
+            cursor: pointer; 
+            transition: 0.2s; 
+            color: #666;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover, 
+        .footer-links span:hover { color: var(--c-white); }
 
-        /* --- 12. MODALS (Impressum) --- */
+        /* NEU: Styling für Footer Logos */
+        .footer-logo {
+            height: 50px; /* Höhe anpassen je nach Logo */
+            width: auto;
+            vertical-align: middle;
+            /* Macht die Logos standardmäßig grau und etwas dunkler */
+            filter: grayscale(1) brightness(0.7);
+            transition: var(--trans-std);
+        }
+
+        /* Beim Hover über den Link wird das Logo weiß/farbig */
+        .footer-links a:hover .footer-logo {
+            filter: grayscale(0) brightness(1);
+        }
+
+
+        /* --- 12. MODALS --- */
         .modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
             z-index: 2000; display: none; opacity: 0; transition: opacity 0.3s;
             justify-content: center; align-items: center; padding: 20px;
         }
-        
         .modal.open { display: flex; opacity: 1; }
-        
+
         .modal-box {
             background: #fff; width: 100%; max-width: 600px;
-            padding: 40px; border-top: 4px solid var(--color-primary);
-            position: relative; max-height: 80vh; overflow-y: auto;
+            padding: 40px; border-top: 4px solid var(--c-primary);
+            position: relative; max-height: 90vh; overflow-y: auto;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 4px;
         }
-        
+
         .close-modal {
             position: absolute; top: 15px; right: 20px;
-            font-size: 2rem; cursor: pointer; color: var(--color-primary);
+            font-size: 2rem; cursor: pointer; color: var(--c-primary);
             line-height: 1;
         }
 
-        /* --- 13. MOBILE OPTIMIERUNG (DER WICHTIGE TEIL) --- */
+        /* --- 13. MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
-            
-            /* Typography kleiner skalieren */
-            html { font-size: 15px; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            
-            /* Sektionen Abstände verringern */
-            section { padding: var(--mobile-padding) 0; }
-            
-            /* Header */
-            nav { display: none; } /* Menü auf Handy ausblenden (einfachere UX für One-Pager) */
-            .logo { flex-grow: 1; }
-            
-            /* Hero - Bild und Text anpassen */
+            section { padding: var(--p-mobile) 0; }
+
+            .desktop-nav { display: none; }
+            .hamburger { display: flex; }
+
             #home {
-                background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%),
+                background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%),
                             url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
-                background-position: center;
+                background-position: center center;
                 text-align: left;
-                align-items: center;
-                padding-top: 20px;
+                padding-top: 40px;
             }
 
             .hero-btns {
@@ -313,36 +358,25 @@
                 gap: 15px;
                 width: 100%;
             }
-            
-            .btn, .btn-outline { width: 100%; text-align: center; margin: 0; }
+            .btn, .btn-outline { width: 100%; margin: 0; }
 
-            /* Ankaufsprofil Stacken */
             .criteria-item {
-                grid-template-columns: 1fr; /* Alles untereinander */
+                grid-template-columns: 1fr;
                 gap: 15px;
                 padding: 30px 0;
             }
-
             .criteria-item h3 {
-                border-left: 3px solid var(--color-primary);
-                padding-left: 10px;
+                border-left: 3px solid var(--c-primary);
+                padding-left: 12px;
+                color: var(--c-primary-dark);
             }
 
-            /* Kontakt Stacken */
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .big-mail { font-size: 1.5rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .address-box { margin-top: 20px; }
 
-            /* Footer Stacken */
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            .footer-links span { margin: 0 10px; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links a, 
+            .footer-links span { margin: 10px; } /* Etwas mehr Abstand auf Mobile */
         }
     </style>
 </head>
@@ -350,16 +384,31 @@
 
     <header>
         <div class="container nav-wrapper">
-            <div class="logo">CEMESA <span style="color:var(--color-primary)">IMMOBILIEN</span></div>
-            <nav>
+            <div class="logo">CEMESA <span class="text-highlight">IMMOBILIEN</span></div>
+            
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="#ankauf">Ankaufsprofil</a></li>
                     <li><a href="#faq">Prozess</a></li>
-                    <li><a href="#kontakt" style="color:var(--color-primary); font-weight:600;">Kontakt</a></li>
+                    <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
                 </ul>
             </nav>
-            </div>
+
+            <button class="hamburger" aria-label="Menü öffnen" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="#ankauf" onclick="toggleMenu()">Ankaufsprofil</a></li>
+            <li><a href="#faq" onclick="toggleMenu()">Prozess</a></li>
+            <li><a href="#kontakt" onclick="toggleMenu()" style="color:var(--c-primary)">Kontakt</a></li>
+        </ul>
+    </div>
 
     <section id="home">
         <div class="container">
@@ -367,7 +416,7 @@
                 <span class="subtitle">Investment Group</span>
                 <h1>Transaktionssicherheit durch Kapitalstärke.</h1>
                 <p class="hero-lead">
-                    Wir erwerben Wohn- und Geschäftshäuser in NRW. 
+                    Wir erwerben Wohn- und Geschäftshäuser in NRW.
                     Schnelle Prüfung. Professionelle Abwicklung.
                 </p>
                 <div class="hero-btns">
@@ -382,7 +431,7 @@
         <div class="container">
             <span class="subtitle">Akquisitionskriterien</span>
             <h2>Ankaufsprofil</h2>
-            
+
             <div class="criteria-list">
                 <div class="criteria-item">
                     <h3>Asset Klassen</h3>
@@ -426,7 +475,7 @@
         <div class="container">
             <span class="subtitle">Information</span>
             <h2>Häufige Fragen</h2>
-            
+
             <div class="faq-wrapper">
                 <div class="faq-item">
                     <button class="faq-trigger">
@@ -434,17 +483,17 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Wir garantieren eine erste qualifizierte Rückmeldung oder Indikation innerhalb von 48 Stunden nach Eingang der Basisunterlagen (Mieterliste, Flurkarte, Fotos).</p>
+                        <p>Wir geben in der Regel eine erste qualifizierte Rückmeldung oder Indikation innerhalb von 48 Stunden nach Eingang der Basisunterlagen (z. B. Mieterliste, Flurkarte, Fotos).</p>
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <button class="faq-trigger">
                         Arbeiten Sie mit Maklern?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Ja, wir pflegen partnerschaftliche Verhältnisse zu Maklern. Bei erfolgreichem Abschluss honorieren wir Angebote marktüblich und gewährleisten Kundenschutz.</p>
+                        <p>Ja. Wir arbeiten partnerschaftlich mit Maklern zusammen. Bei erfolgreichem Abschluss honorieren wir Angebote marktüblich und gewährleisten Kundenschutz.</p>
                     </div>
                 </div>
 
@@ -454,7 +503,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Dank starker Eigenkapitalbasis agieren wir weitgehend unabhängig von Bankfinanzierungen im Ankaufsprozess. Kaufverträge schließen wir in der Regel ohne Finanzierungsvorbehalt.</p>
+                        <p>Dank klarer Struktur und solider Kapitalbasis schließen wir Kaufverträge in der Regel ohne Finanzierungsvorbehalt.</p>
                     </div>
                 </div>
             </div>
@@ -465,17 +514,23 @@
         <div class="container">
             <div class="contact-grid">
                 <div>
-                    <span class="subtitle" style="color:#aaa">Deal Flow</span>
-                    <h2>Angebot einreichen</h2>
-                    <p style="color:#ccc">Senden Sie uns Ihr Exposé direkt digital.</p>
-                    <a href="mailto:ankauf@cemesa-immobilien.de" class="big-mail">ankauf@cemesa.de</a>
+                    <span class="subtitle text-dim">Deal Flow</span>
+                    <h2 class="text-white">Angebot einreichen</h2>
+                    <p class="text-dim">Senden Sie uns Ihr Exposé direkt digital.</p>
+
+                    <a href="mailto:ankauf@cemesa-immo.de" class="big-mail">ankauf@cemesa-immo.de</a>
+
+                    <p class="text-dim" style="margin-top:16px;">
+                        Telefon: <br>
+                        <a href="tel:+491767276244" class="phone-link">+49 176 7276244</a>
+                    </p>
                 </div>
+
                 <div style="align-self: end;">
                     <div class="address-box">
-                        <strong>CEMESA Immobilien GmbH</strong><br>
-                        Musterstraße 101<br>
-                        40213 Düsseldorf<br><br>
-                        T: +49 211 1234567
+                        <strong class="text-white">Cemesa Immobilien GmbH</strong><br>
+                        Mülheimer Str. 15<br>
+                        45145 Essen<br>
                     </div>
                 </div>
             </div>
@@ -484,12 +539,28 @@
 
     <footer>
         <div class="container footer-content">
-            <div>&copy; 2024 CEMESA Immobilien.</div>
+            <div>&copy; 2025 Cemesa Immobilien GmbH.</div>
+            
             <div class="footer-links">
+                
+                <a href="https://primetimesuites.de" target="_blank">
+                    <img src="logo-suites.png" 
+                         alt="Suites" 
+                         class="footer-logo" 
+                         style="height: 90px;"> 
+                </a>
+
+                <a href="https://primetimeautomations.de" target="_blank">
+                    <img src="logo-automations.png" 
+                         alt="Automations" 
+                         class="footer-logo" 
+                         style="height: 50px;"> 
+                </a>
+                
                 <span onclick="openModal('impressum')">Impressum</span>
                 <span onclick="openModal('datenschutz')">Datenschutz</span>
             </div>
-        </div>
+            </div>
     </footer>
 
     <div id="modal-impressum" class="modal">
@@ -497,7 +568,17 @@
             <span class="close-modal" onclick="closeModal('impressum')">&times;</span>
             <h3>Impressum</h3>
             <br>
-            <p><strong>CEMESA Immobilien GmbH</strong><br>Musterstraße 101, 40213 Düsseldorf<br><br>Geschäftsführer: Max Mustermann<br>Handelsregister: Amtsgericht Düsseldorf, HRB 00000<br>USt-IdNr.: DE 123456789</p>
+            <p>
+                <strong>Cemesa Immobilien GmbH</strong><br>
+                Mülheimer Str. 15<br>
+                45145 Essen<br><br>
+                Telefon: +49 176 7276244<br>
+                E-Mail: ankauf@cemesa-immo.de<br><br>
+                Vertretungsberechtigt: Mert Gülmez<br>
+                Registergericht: Amtsgericht Essen<br>
+                Handelsregister: HRB 37507<br>
+                USt-IdNr.: nicht vorhanden
+            </p>
         </div>
     </div>
 
@@ -506,28 +587,38 @@
             <span class="close-modal" onclick="closeModal('datenschutz')">&times;</span>
             <h3>Datenschutz</h3>
             <br>
-            <p>Diese Webseite dient als Visitenkarte. Wir speichern keine personenbezogenen Daten von Besuchern (keine Cookies, kein Tracking). Daten, die Sie uns per E-Mail senden, werden vertraulich behandelt.</p>
+            <p>
+                Diese Webseite dient als Visitenkarte. Es werden keine Cookies oder Tracking-Tools eingesetzt.
+                Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage.
+                Kontakt: ankauf@cemesa-immo.de
+            </p>
         </div>
     </div>
 
     <script>
-        // FAQ Logik
+        function toggleMenu() {
+            const nav = document.getElementById('mobileNav');
+            const body = document.body;
+            nav.classList.toggle('is-open');
+            body.classList.toggle('nav-open');
+            if(nav.classList.contains('is-open')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = 'auto';
+            }
+        }
+
         const faqItems = document.querySelectorAll('.faq-item');
-        
         faqItems.forEach(item => {
             const trigger = item.querySelector('.faq-trigger');
             const answer = item.querySelector('.faq-answer');
-            
+
             trigger.addEventListener('click', () => {
-                // Toggle active class
                 const isActive = item.classList.contains('active');
-                
-                // Schließe alle anderen (für cleanen Look)
                 faqItems.forEach(i => {
                     i.classList.remove('active');
                     i.querySelector('.faq-answer').style.maxHeight = null;
                 });
-
                 if (!isActive) {
                     item.classList.add('active');
                     answer.style.maxHeight = answer.scrollHeight + "px";
@@ -535,18 +626,16 @@
             });
         });
 
-        // Modal Logik
         function openModal(id) {
             document.getElementById('modal-' + id).classList.add('open');
-            document.body.style.overflow = 'hidden'; // Scrollen verhindern
-        }
-        
-        function closeModal(id) {
-            document.getElementById('modal-' + id).classList.remove('open');
-            document.body.style.overflow = 'auto'; // Scrollen wieder erlauben
+            document.body.style.overflow = 'hidden';
         }
 
-        // Schließen bei Klick auf Hintergrund
+        function closeModal(id) {
+            document.getElementById('modal-' + id).classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
         window.onclick = function(e) {
             if (e.target.classList.contains('modal')) {
                 e.target.classList.remove('open');
@@ -555,5 +644,4 @@
         }
     </script>
 </body>
-
 </html>
