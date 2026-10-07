@@ -2,581 +2,336 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="CEMESA Immobilien - Ankauf von Wohn- und Geschäftshäusern in NRW. Kapitalstark und Transaktionssicher.">
-    <title>CEMESA Immobilien | Investment & Development</title>
-    
-    <link href="fonts/inter.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cemesa Immobilien GmbH | Ankauf von Wohn- und Geschäftshäusern in NRW</title>
+    <meta name="description" content="Wir kaufen Mehrfamilienhäuser, Wohn- und Geschäftshäuser und Grundstücke in NRW (100.000 € bis 2 Mio. €) auf eigene Rechnung. Erste Rückmeldung in der Regel binnen 48 Stunden nach Eingang der Unterlagen. Für Eigentümer und Makler.">
+    <link rel="canonical" href="https://www.cemesa-immo.de/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect x=%220%22 y=%220%22 width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23cc0000%22/><text x=%2250%25%22 y=%2255%25%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2240%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>C</text></svg>">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:url" content="https://www.cemesa-immo.de/">
+    <meta property="og:site_name" content="Cemesa Immobilien GmbH">
+    <meta property="og:title" content="Cemesa Immobilien GmbH | Ankauf von Wohn- und Geschäftshäusern in NRW">
+    <meta property="og:description" content="Direkter Ankauf von Mehrfamilienhäusern, Wohn- und Geschäftshäusern und Grundstücken in NRW. Für Eigentümer und Makler – schnelle Prüfung, klare Abwicklung.">
+    <!-- og:image: vorläufig aus dem vorhandenen Hero-Bild erzeugt (img/og-cemesa.jpg, 1200x630, lokal im Repo).
+         [VON MERT: Bei Bedarf eigenes Bild 1200x630 bereitstellen und img/og-cemesa.jpg ersetzen] -->
+    <meta property="og:image" content="https://www.cemesa-immo.de/img/og-cemesa.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cemesa Immobilien GmbH – Ankauf von Wohn- und Geschäftshäusern in NRW">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <style>
-        /* --- 1. VARIABLEN & DESIGN SYSTEM --- */
-        :root {
-            --c-primary: #cc0000;
-            --c-primary-dark: #a30000;
-            --c-dark: #0a0a0a;
-            --c-text: #444444;
-            --c-light: #f4f4f5;
-            --c-white: #ffffff;
-            --c-border: #e5e5e5;
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-            --w-container: 1100px;
-            --h-header: 70px;
-            --p-section: 100px;
-            --p-mobile: 60px;
-            
-            --trans-std: 0.3s ease;
-        }
+    <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/site.css">
 
-        /* --- 2. RESET & BASIS --- */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--c-white);
-            color: var(--c-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            padding-top: var(--h-header);
-            width: 100%;
-        }
-
-        a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
-        ul { list-style: none; }
-        img { max-width: 100%; height: auto; display: block; }
-        button { font-family: inherit; cursor: pointer; border: none; background: none; }
-
-        /* --- 3. TYPOGRAFIE --- */
-        h1, h2, h3 {
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            color: var(--c-dark);
-        }
-
-        h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); margin-bottom: 20px; }
-        h2 { font-size: clamp(1.8rem, 4vw, 2.25rem); margin-bottom: 40px; }
-        h3 { font-size: 1.25rem; margin-bottom: 10px; }
-
-        .subtitle {
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--c-primary);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        p { color: var(--c-text); margin-bottom: 20px; }
-
-        .text-highlight { color: var(--c-primary); }
-        .text-white { color: var(--c-white) !important; }
-        .text-dim { color: rgba(255,255,255,0.7); }
-
-        /* --- 4. BUTTONS --- */
-        .btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            padding: 16px 32px;
-            background-color: var(--c-primary);
-            color: var(--c-white);
-            font-weight: 500;
-            font-size: 0.95rem;
-            border-radius: 4px;
-            transition: background var(--trans-std), transform 0.2s;
-        }
-
-        .btn:hover { background-color: var(--c-primary-dark); transform: translateY(-2px); }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--c-dark);
-            color: var(--c-dark);
-            margin-left: 10px;
-        }
-
-        .btn-outline:hover { background-color: var(--c-dark); color: var(--c-white); }
-
-        /* --- 5. LAYOUT --- */
-        .container {
-            max-width: var(--w-container);
-            margin: 0 auto;
-            padding: 0 20px;
-            width: 100%;
-        }
-
-        section {
-            padding: var(--p-section) 0;
-            border-bottom: 1px solid var(--c-border);
-            width: 100%;
-        }
-
-        /* --- 6. HEADER & NAV --- */
-        header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: var(--h-header);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--c-border);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            white-space: nowrap;
-        }
-
-        /* Desktop Nav */
-        .desktop-nav ul { display: flex; gap: 30px; }
-        .desktop-nav a { font-size: 0.9rem; font-weight: 500; color: var(--c-text); }
-        .desktop-nav a:hover, .desktop-nav a.active-link { color: var(--c-primary); }
-        .nav-cta { color: var(--c-primary) !important; font-weight: 600 !important; }
-
-        /* Mobile Menu Button */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            z-index: 1100;
-        }
-        .hamburger span {
-            width: 25px;
-            height: 2px;
-            background-color: var(--c-dark);
-            transition: var(--trans-std);
-        }
-
-        /* Mobile Nav Menu Overlay */
-        .mobile-nav {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100vh;
-            background: var(--c-white);
-            z-index: 1050;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity var(--trans-std);
-        }
-        .mobile-nav.is-open { opacity: 1; pointer-events: all; }
-        .mobile-nav ul { text-align: center; display: flex; flex-direction: column; gap: 30px; }
-        .mobile-nav a { font-size: 1.5rem; font-weight: 600; color: var(--c-dark); }
-
-        body.nav-open .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        body.nav-open .hamburger span:nth-child(2) { opacity: 0; }
-        body.nav-open .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-        /* --- 7. HERO SECTION --- */
-        #home {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(to right, #ffffff 30%, rgba(255,255,255,0.7) 100%),
-                        url('img/hero.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        .hero-text { max-width: 600px; position: relative; z-index: 2; }
-        .hero-lead { font-size: 1.2rem; font-weight: 300; line-height: 1.6; margin-bottom: 40px; }
-
-        /* --- 8. ANKAUFSPROFIL --- */
-        .criteria-list { border-top: 1px solid var(--c-border); margin-top: 40px; }
-
-        .criteria-item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--c-border);
-            transition: background 0.3s;
-        }
-        .criteria-item:hover { background-color: #fafafa; }
-        
-        .criteria-content ul li { position: relative; padding-left: 25px; margin-bottom: 8px; color: var(--c-text); }
-        .criteria-content ul li::before {
-            content: '•'; color: var(--c-primary);
-            position: absolute; left: 0; font-weight: bold;
-        }
-
-        /* --- 9. FAQ --- */
-        .faq-wrapper { max-width: 800px; }
-        .faq-item { border-bottom: 1px solid var(--c-border); }
-
-        .faq-trigger {
-            width: 100%; text-align: left; padding: 25px 0;
-            font-size: 1.1rem; font-weight: 600; color: var(--c-dark);
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .faq-trigger:hover { color: var(--c-primary); }
-        
-        .faq-icon { font-size: 1.5rem; color: var(--c-primary); transition: transform 0.3s ease; }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
-        
-        .faq-answer {
-            max-height: 0; overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .faq-answer p { padding-bottom: 25px; margin: 0; opacity: 0.8; }
-
-        /* --- 10. KONTAKT --- */
-        #kontakt { background-color: var(--c-dark); color: var(--c-white); border: none; }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .big-mail {
-            font-size: clamp(1rem, 5vw, 1.8rem);
-            font-weight: 700;
-            color: var(--c-white);
-            border-bottom: 2px solid var(--c-primary);
-            display: inline-block;
-            margin: 20px 0;
-            text-decoration: none;
-            word-wrap: break-word;
-            max-width: 100%;
-        }
-        .big-mail:hover { color: var(--c-primary); border-color: var(--c-white); }
-        
-        .phone-link { color: var(--c-white); border-bottom: 1px solid rgba(255,255,255,0.3); }
-        .address-box { color: #999; font-size: 1rem; line-height: 1.8; }
-
-        /* --- 11. FOOTER --- */
-        footer {
-            background-color: #000;
-            color: #666;
-            padding: 40px 0;
-            font-size: 0.85rem;
-            width: 100%;
-        }
-
-        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;}
-        
-        .footer-links {
-            display: flex;
-            align-items: center; 
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .footer-links a, 
-        .footer-links span { 
-            cursor: pointer; 
-            transition: 0.2s; 
-            color: #666;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .footer-links a:hover, 
-        .footer-links span:hover { color: var(--c-white); }
-
-        /* CSS CHANGE: Keine feste Höhe mehr, nur noch Auto-Width gegen Verzerrung */
-        .footer-logo {
-            /* height: ...px; <-- HIER NICHTS FESTLEGEN */
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-            vertical-align: middle;
-            filter: grayscale(1) brightness(0.7);
-            transition: var(--trans-std);
-        }
-
-        .footer-links a:hover .footer-logo {
-            filter: grayscale(0) brightness(1);
-        }
-
-        /* --- 12. MODALS --- */
-        .modal {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
-            z-index: 2000; display: none; opacity: 0; transition: opacity 0.3s;
-            justify-content: center; align-items: center; padding: 20px;
-        }
-        .modal.open { display: flex; opacity: 1; }
-
-        .modal-box {
-            background: #fff; width: 100%; max-width: 600px;
-            padding: 40px; border-top: 4px solid var(--c-primary);
-            position: relative; max-height: 90vh; overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            border-radius: 4px;
-        }
-
-        .close-modal {
-            position: absolute; top: 15px; right: 20px;
-            font-size: 2rem; cursor: pointer; color: var(--c-primary);
-            line-height: 1;
-        }
-
-        #modal-datenschutz .modal-box { overflow-wrap: break-word; }
-        #modal-datenschutz h4 { margin: 1.2em 0 0.4em; }
-        #modal-datenschutz p, #modal-datenschutz ul { margin-bottom: 0.8em; }
-        #modal-datenschutz ul { list-style: disc; padding-left: 1.2em; }
-
-        /* --- 13. MOBILE RESPONSIVENESS --- */
-        @media (max-width: 768px) {
-            section { padding: var(--p-mobile) 0; }
-
-            .desktop-nav { display: none; }
-            .hamburger { display: flex; }
-
-            #home {
-                background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%),
-                            url('img/hero-mobile.jpg');
-                background-position: center center;
-                text-align: left;
-                padding-top: 40px;
-            }
-
-            .hero-btns {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                width: 100%;
-            }
-            .btn, .btn-outline { width: 100%; margin: 0; }
-
-            .criteria-item {
-                grid-template-columns: 1fr;
-                gap: 15px;
-                padding: 30px 0;
-            }
-            .criteria-item h3 {
-                border-left: 3px solid var(--c-primary);
-                padding-left: 12px;
-                color: var(--c-primary-dark);
-            }
-
-            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-            .address-box { margin-top: 20px; }
-
-            .footer-content { flex-direction: column; text-align: center; }
-            
-            .footer-links {
-                justify-content: center;
-                flex-direction: column;
-                gap: 25px;
-                margin-top: 20px;
-            }
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Cemesa Immobilien GmbH",
+      "legalName": "Cemesa Immobilien GmbH",
+      "url": "https://www.cemesa-immo.de/",
+      "email": "ankauf@cemesa-immo.de",
+      "telephone": "+49-176-72762444",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mülheimer Str. 15",
+        "postalCode": "45145",
+        "addressLocality": "Essen",
+        "addressRegion": "Nordrhein-Westfalen",
+        "addressCountry": "DE"
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "Handelsregister Amtsgericht Essen",
+        "value": "HRB 37507"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Nordrhein-Westfalen"
+      }
+    }
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-    <header>
-        <div class="container nav-wrapper">
-            <div class="logo">CEMESA <span class="text-highlight">IMMOBILIEN</span></div>
-            
-            <nav class="desktop-nav">
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="#top" aria-label="Cemesa Immobilien – zum Seitenanfang">CEMESA <span>IMMOBILIEN</span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menü öffnen">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
                 <ul>
                     <li><a href="#ankauf">Ankaufsprofil</a></li>
-                    <li><a href="#faq">Prozess</a></li>
+                    <li><a href="#ablauf">Ablauf</a></li>
+                    <li><a href="#makler">Für Makler</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
                 </ul>
             </nav>
-
-            <button class="hamburger" aria-label="Menü öffnen" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
-    <div class="mobile-nav" id="mobileNav">
-        <ul>
-            <li><a href="#ankauf" onclick="toggleMenu()">Ankaufsprofil</a></li>
-            <li><a href="#faq" onclick="toggleMenu()">Prozess</a></li>
-            <li><a href="#kontakt" onclick="toggleMenu()" style="color:var(--c-primary)">Kontakt</a></li>
-        </ul>
-    </div>
-
-    <section id="home">
-        <div class="container">
-            <div class="hero-text">
-                <span class="subtitle">Investment Group</span>
-                <h1>Transaktionssicherheit durch Kapitalstärke.</h1>
-                <p class="hero-lead">
-                    Wir erwerben Wohn- und Geschäftshäuser in NRW.
-                    Schnelle Prüfung. Professionelle Abwicklung.
-                </p>
-                <div class="hero-btns">
-                    <a href="#ankauf" class="btn">Ankaufsprofil</a>
-                    <a href="#kontakt" class="btn btn-outline">Angebot senden</a>
+    <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="eyebrow">Immobilienankauf NRW</span>
+                    <!-- [VON MERT: „Investment & Development“ nur, wenn Cemesa tatsächlich selbst Projekte entwickelt/baut]
+                         Vorbereitet (statt „Immobilienankauf NRW“): <span class="eyebrow">Investment &amp; Development</span> -->
+                    <h1 id="hero-title">Ankauf von Wohn- und Geschäftshäusern in NRW – direkt vom Käufer.</h1>
+                    <p class="lead">Wir kaufen Mehrfamilienhäuser, Wohn- und Geschäftshäuser sowie Grundstücke auf eigene Rechnung. Schnelle Prüfung, klare Abwicklung, in der Regel ohne Finanzierungsvorbehalt.</p>
+                    <div class="btn-row">
+                        <a href="#ankauf" class="btn">Ankaufsprofil ansehen</a>
+                        <a href="#kontakt" class="btn btn-outline">Angebot senden</a>
+                    </div>
+                </div>
+                <div class="hero-media">
+                    <picture>
+                        <source type="image/webp" srcset="/img/hero-800.webp 800w, /img/hero-1400.webp 1400w" sizes="(min-width: 861px) 46vw, 100vw">
+                        <img src="/img/hero-1400.jpg" srcset="/img/hero-800.jpg 800w, /img/hero-1400.jpg 1400w" sizes="(min-width: 861px) 46vw, 100vw" width="1400" height="933" alt="Symbolbild: Glasfassaden von Hochhäusern aus der Froschperspektive" fetchpriority="high" decoding="async">
+                    </picture>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="ankauf">
-        <div class="container">
-            <span class="subtitle">Akquisitionskriterien</span>
-            <h2>Ankaufsprofil</h2>
+        <section class="facts-bar" aria-label="Kurzfakten">
+            <div class="container">
+                <dl class="facts">
+                    <div>
+                        <dt>Sitz Essen</dt>
+                        <dd>Amtsgericht Essen, HRB 37507</dd>
+                    </div>
+                    <div>
+                        <dt>Geschäftsführer</dt>
+                        <dd>Mert Gülmez</dd>
+                        <!-- [VON MERT: „Inhabergeführt“ statt „Geschäftsführer“ nur, wenn Mert (Mehrheits-)Gesellschafter ist]
+                             Vorbereitet: <dt>Inhabergeführt</dt> <dd>von Mert Gülmez</dd> -->
+                    </div>
+                    <div>
+                        <dt>Fokus</dt>
+                        <dd>Ruhrgebiet &amp; NRW</dd>
+                    </div>
+                    <div>
+                        <dt>Rückmeldung</dt>
+                        <dd>in der Regel binnen 48 Std. nach Eingang der Unterlagen</dd>
+                        <!-- [VON MERT: bestätigen, dass die 48 Std. in den meisten Fällen eingehalten werden; sonst überall „innerhalb von zwei Werktagen“]
+                             Vorbereitet: <dd>in der Regel innerhalb von zwei Werktagen nach Eingang der Unterlagen</dd> -->
+                    </div>
+                </dl>
+            </div>
+        </section>
 
-            <div class="criteria-list">
-                <div class="criteria-item">
-                    <h3>Asset Klassen</h3>
-                    <div class="criteria-content">
-                        <ul>
+        <section class="section" id="unternehmen" aria-labelledby="unternehmen-title">
+            <div class="container split">
+                <div class="section-head">
+                    <span class="eyebrow">Unternehmen</span>
+                    <h2 id="unternehmen-title">Wer hier kauft.</h2>
+                </div>
+                <div class="split-body">
+                    <p>Die Cemesa Immobilien GmbH mit Sitz in Essen kauft Mehrfamilienhäuser, Wohn- und Geschäftshäuser und Grundstücke im Ruhrgebiet und in NRW – auf eigene Rechnung. Wir vermitteln keine Immobilien, wir kaufen selbst. Geschäftsführer ist Mert Gülmez. Sie sprechen von Anfang an direkt mit dem Käufer, nicht mit Zwischenstationen.</p>
+                    <!-- [VON MERT: optional „für den eigenen Bestand“ (nur wenn Objekte grundsätzlich gehalten und nicht weiterverkauft werden); Gründungsjahr, Branchenhintergrund, Bestandsgröße nur mit Beleg]
+                         Vorbereitet: <p>Seit [Gründungsjahr] erwerben wir Objekte für den eigenen Bestand. [Branchenhintergrund / Bestandsgröße]</p> -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-soft" id="ankauf" aria-labelledby="ankauf-title">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Akquisitionskriterien</span>
+                    <h2 id="ankauf-title">Ankaufsprofil</h2>
+                </div>
+                <div class="criteria">
+                    <article class="criteria-card">
+                        <h3>Asset-Klassen</h3>
+                        <ul class="checklist">
                             <li>Mehrfamilienhäuser (ab 6 Einheiten)</li>
                             <li>Wohn- und Geschäftshäuser</li>
                             <li>Wohnanlagen und Siedlungen</li>
-                            <li>Grundstücke (Baurecht für Wohnen)</li>
+                            <li>Grundstücke mit Baurecht für Wohnen</li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="criteria-item">
-                    <h3>Standorte</h3>
-                    <div class="criteria-content">
-                        <ul>
+                    </article>
+                    <article class="criteria-card">
+                        <h3>Standorte</h3>
+                        <ul class="checklist">
                             <li>Metropolregion Rhein-Ruhr (Düsseldorf, Köln, Essen)</li>
-                            <li>NRW A-Städte & starke B-Städte</li>
-                            <li>Gute Mikrolagen & Entwicklungslagen</li>
+                            <li>NRW A-Städte und starke B-Städte</li>
+                            <li>Gute Mikrolagen und Entwicklungslagen</li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="criteria-item">
-                    <h3>Deal Struktur</h3>
-                    <div class="criteria-content">
-                        <ul>
-                            <li>Volumen: 100k EUR bis 2 Mio. EUR</li>
-                            <li>Asset Deal & Share Deal</li>
+                    </article>
+                    <article class="criteria-card">
+                        <h3>Deal-Struktur</h3>
+                        <ul class="checklist">
+                            <li>Volumen: 100.000 € bis 2 Mio. €</li>
+                            <li>Asset Deal und Share Deal möglich</li>
                             <li>Auch Objekte mit Sanierungsstau (Value-Add)</li>
-                            <li>Schnelle Abwicklung ohne Finanzierungsvorbehalt</li>
+                            <li>Zügige Abwicklung, in der Regel ohne Finanzierungsvorbehalt</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="ablauf" aria-labelledby="ablauf-title">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Ablauf</span>
+                    <h2 id="ablauf-title">Vom ersten Kontakt bis zur Beurkundung.</h2>
+                </div>
+                <ol class="steps">
+                    <li>
+                        <h3>Kontakt &amp; Unterlagen</h3>
+                        <p>Sie senden uns die Basisunterlagen zu Ihrem Objekt (siehe Checkliste im Kontaktbereich).</p>
+                    </li>
+                    <li>
+                        <h3>Prüfung</h3>
+                        <p>Wir sichten die Unterlagen und melden uns in der Regel innerhalb von 48 Stunden nach Eingang mit einer ersten Einschätzung.</p>
+                    </li>
+                    <li>
+                        <h3>Kaufpreisindikation</h3>
+                        <p>Bei Interesse erhalten Sie eine schriftliche, unverbindliche Kaufpreisindikation.</p>
+                    </li>
+                    <li>
+                        <h3>Due Diligence</h3>
+                        <p>Technische, rechtliche und wirtschaftliche Prüfung, bei Bedarf gemeinsam mit Notar, Rechtsanwalt oder Sachverständigem.</p>
+                    </li>
+                    <li>
+                        <h3>Beurkundung</h3>
+                        <p>Verbindlich wird der Kauf mit dem notariellen Kaufvertrag. Einen Finanzierungsvorbehalt vereinbaren wir dabei in der Regel nicht.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section section-soft" id="zielgruppen" aria-labelledby="zielgruppen-title">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Zielgruppen</span>
+                    <h2 id="zielgruppen-title">Für Eigentümer und Makler.</h2>
+                </div>
+                <div class="audience">
+                    <article class="audience-card" id="eigentuemer">
+                        <span class="card-label">Verkauf direkt</span>
+                        <h3>Für Eigentümer</h3>
+                        <p>Sie möchten ein Mehrfamilienhaus, Wohn- und Geschäftshaus oder Grundstück verkaufen? Sie sprechen direkt mit dem Käufer – ohne Zwischenstationen. Wir prüfen Ihr Objekt zügig und melden uns in der Regel innerhalb von 48 Stunden nach Eingang Ihrer Unterlagen.</p>
+                    </article>
+                    <article class="audience-card" id="makler">
+                        <span class="card-label">Zusammenarbeit</span>
+                        <h3>Für Makler</h3>
+                        <p>Sie vertreten einen Verkäufer? Angebote von Maklern sind willkommen. Eine Provision zahlen wir nur, wenn wir sie vorher schriftlich mit Ihnen vereinbart haben (E-Mail genügt). Bitte nennen Sie Ihre Provisionsforderung deshalb schon in der ersten Nachricht – gern zunächst mit einem Kurzexposé ohne Objektadresse.</p>
+                        <p>Ist uns ein Objekt bereits bekannt, sagen wir Ihnen das innerhalb von fünf Werktagen nach Eingang. Besteht eine Provisionsvereinbarung, verhandeln wir nicht an Ihnen vorbei mit dem Eigentümer.</p>
+                        <!-- [VON MERT: optional konkrete Provisionshöhe; die 5-Werktage-Frist kann angepasst werden, muss dann aber eingehalten werden]
+                             Vorbereitet: <p>Unsere übliche Käuferprovision bei vorheriger Vereinbarung: [Höhe] % inkl. USt.</p> -->
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="faq" aria-labelledby="faq-title">
+            <div class="container faq-grid">
+                <div class="section-head">
+                    <span class="eyebrow">Information</span>
+                    <h2 id="faq-title">Häufige Fragen</h2>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Wie schnell erfolgt die Prüfung?<span class="faq-icon" aria-hidden="true"></span></summary>
+                        <div class="faq-answer"><p>Wir geben in der Regel eine erste qualifizierte Rückmeldung oder Indikation innerhalb von 48 Stunden nach Eingang der Basisunterlagen (z. B. Mieterliste, Flurkarte, Fotos).</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Arbeiten Sie mit Maklern?<span class="faq-icon" aria-hidden="true"></span></summary>
+                        <div class="faq-answer"><p>Ja. Eine Provision zahlen wir nur auf Grundlage einer vorher schriftlich getroffenen Vereinbarung (E-Mail genügt). Bitte nennen Sie Ihre Provisionsforderung bereits in der ersten Nachricht. Ist uns ein Objekt schon bekannt, teilen wir Ihnen das innerhalb von fünf Werktagen mit.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Wie finanzieren Sie den Kaufpreis?<span class="faq-icon" aria-hidden="true"></span></summary>
+                        <div class="faq-answer"><p>Aus Eigenmitteln und/oder über Banken. Die Finanzierung klären wir vor dem Notartermin. Kaufverträge schließen wir in der Regel ohne Finanzierungsvorbehalt.</p>
+                        <!-- [VON MERT: optional, nur wenn das in jedem Fall möglich ist]
+                             Vorbereitet: <p>Auf Wunsch legen wir vor der Beurkundung einen Finanzierungs- oder Eigenkapitalnachweis vor.</p> -->
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Ist meine Anfrage vertraulich?<span class="faq-icon" aria-hidden="true"></span></summary>
+                        <div class="faq-answer"><p>Ja. Wir behandeln Ihre Anfrage vertraulich. Unterlagen geben wir nur weiter, soweit das für die Prüfung oder den Ankauf nötig ist – etwa an Banken, Notare, Rechtsanwälte, Steuerberater oder Sachverständige. Einzelheiten finden Sie in unserer <button type="button" class="link-button" data-modal="datenschutz">Datenschutzerklärung</button>.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Welche Unterlagen helfen bei der ersten Prüfung?<span class="faq-icon" aria-hidden="true"></span></summary>
+                        <div class="faq-answer"><p>Für eine erste Einschätzung reichen in der Regel: eine kurze Objektbeschreibung, die Mieterliste ohne Mieternamen (Lage, Fläche, Miete, Mietbeginn), Flurkarte bzw. Lageplan, aktuelle Fotos und – soweit vorhanden – der Energieausweis.</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-dark" id="kontakt" aria-labelledby="kontakt-title">
+            <div class="container contact-grid">
+                <div>
+                    <span class="eyebrow">Deal Flow</span>
+                    <h2 id="kontakt-title">Angebot einreichen.</h2>
+                    <p class="lead">Senden Sie uns Ihr Exposé direkt per E-Mail – ohne Formular, ohne Umwege. Bitte schicken Sie nur Unterlagen, die Sie weitergeben dürfen, und Mieterlisten ohne Mieternamen. Namen brauchen wir erst, wenn es konkret wird. Mehr dazu in der <button type="button" class="link-button" data-modal="datenschutz">Datenschutzerklärung</button>.</p>
+                    <div class="btn-row">
+                        <a class="btn" href="mailto:ankauf@cemesa-immo.de?subject=Ankaufsangebot%20Eigent%C3%BCmer%20%E2%80%93%20%5BAdresse%2FOrt%5D&body=Sehr%20geehrte%20Damen%20und%20Herren%2C%0D%0A%0D%0Aich%20biete%20folgendes%20Objekt%20zum%20Ankauf%20an%3A%0D%0A%0D%0AAdresse%2FOrt%3A%0D%0AObjektart%20%28MFH%20%2F%20WGH%20%2F%20Grundst%C3%BCck%29%3A%0D%0AAnzahl%20Einheiten%20%2F%20Fl%C3%A4che%3A%0D%0AKaufpreisvorstellung%3A%0D%0A%0D%0ADiese%20Unterlagen%20sind%20beigef%C3%BCgt%20bzw.%20folgen%20auf%20Anfrage%3A%0D%0A-%20Kurzexpos%C3%A9%20%2F%20Objektbeschreibung%0D%0A-%20Mieterliste%20ohne%20Mieternamen%20%28Lage%2C%20Fl%C3%A4che%2C%20Miete%2C%20Mietbeginn%29%0D%0A-%20Flurkarte%20%2F%20Lageplan%0D%0A-%20aktuelle%20Fotos%20%28ohne%20erkennbare%20Personen%29%0D%0A-%20Energieausweis%2C%20falls%20vorhanden%0D%0A-%20Grundriss%2C%20falls%20vorhanden%0D%0A%0D%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen">Als Eigentümer anbieten</a>
+                        <a class="btn btn-outline" href="mailto:ankauf@cemesa-immo.de?subject=Ankaufsangebot%20Makler%20%E2%80%93%20%5BAdresse%2FOrt%5D&body=Sehr%20geehrte%20Damen%20und%20Herren%2C%0D%0A%0D%0Aich%20biete%20Ihnen%20folgendes%20Objekt%20an%3A%0D%0A%0D%0AAdresse%2FOrt%3A%0D%0AObjektart%20%28MFH%20%2F%20WGH%20%2F%20Grundst%C3%BCck%29%3A%0D%0AAnzahl%20Einheiten%20%2F%20Fl%C3%A4che%3A%0D%0AKaufpreisvorstellung%3A%0D%0AMaklerfirma%2FAnsprechpartner%3A%0D%0AAuftrag%20des%20Eigent%C3%BCmers%20liegt%20vor%20%28ja%2Fnein%29%3A%0D%0AProvisionsforderung%20an%20den%20K%C3%A4ufer%20%28H%C3%B6he%20oder%20%22keine%22%29%3A%0D%0A%0D%0ADiese%20Unterlagen%20sind%20beigef%C3%BCgt%20bzw.%20folgen%20auf%20Anfrage%3A%0D%0A-%20Kurzexpos%C3%A9%20%2F%20Objektbeschreibung%0D%0A-%20Mieterliste%20ohne%20Mieternamen%20%28Lage%2C%20Fl%C3%A4che%2C%20Miete%2C%20Mietbeginn%29%0D%0A-%20Flurkarte%20%2F%20Lageplan%0D%0A-%20aktuelle%20Fotos%20%28ohne%20erkennbare%20Personen%29%0D%0A-%20Energieausweis%2C%20falls%20vorhanden%0D%0A%0D%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen">Als Makler anbieten</a>
+                    </div>
+                    <p class="note">Die Buttons öffnen Ihr E-Mail-Programm mit einer vorausgefüllten Vorlage.</p>
+                </div>
+
+                <div>
+                    <div class="contact-card">
+                        <h3>Direkter Kontakt</h3>
+                        <span class="contact-label">E-Mail</span>
+                        <a class="contact-line" href="mailto:ankauf@cemesa-immo.de">ankauf@cemesa-immo.de</a>
+                        <span class="contact-label">Telefon</span>
+                        <a class="contact-line" href="tel:+4917672762444">+49 176 72762444</a>
+                        <span class="contact-label">Anschrift</span>
+                        <address>
+                            <strong>Cemesa Immobilien GmbH</strong><br>
+                            Mülheimer Str. 15<br>
+                            45145 Essen
+                        </address>
+                    </div>
+                    <div class="contact-card" id="checkliste">
+                        <h3>Checkliste für die erste Prüfung</h3>
+                        <ul class="checklist">
+                            <li>Kurzexposé bzw. Objektbeschreibung</li>
+                            <li>Mieterliste ohne Mieternamen (Lage, Fläche, Miete, Mietbeginn)</li>
+                            <li>Flurkarte bzw. Lageplan</li>
+                            <li>Aktuelle Fotos (ohne erkennbare Personen)</li>
+                            <li>Energieausweis, falls vorhanden</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section id="faq">
-        <div class="container">
-            <span class="subtitle">Information</span>
-            <h2>Häufige Fragen</h2>
-
-            <div class="faq-wrapper">
-                <div class="faq-item">
-                    <button class="faq-trigger">
-                        Wie schnell erfolgt die Prüfung?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Wir geben in der Regel eine erste qualifizierte Rückmeldung oder Indikation innerhalb von 48 Stunden nach Eingang der Basisunterlagen (z. B. Mieterliste, Flurkarte, Fotos).</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-trigger">
-                        Arbeiten Sie mit Maklern?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Ja. Wir arbeiten partnerschaftlich mit Maklern zusammen. Bei erfolgreichem Abschluss honorieren wir Angebote marktüblich und gewährleisten Kundenschutz.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-trigger">
-                        Ist die Finanzierung gesichert?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Dank klarer Struktur und solider Kapitalbasis schließen wir Kaufverträge in der Regel ohne Finanzierungsvorbehalt.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="kontakt">
-        <div class="container">
-            <div class="contact-grid">
-                <div>
-                    <span class="subtitle text-dim">Deal Flow</span>
-                    <h2 class="text-white">Angebot einreichen</h2>
-                    <p class="text-dim">Senden Sie uns Ihr Exposé direkt digital.</p>
-
-                    <a href="mailto:ankauf@cemesa-immo.de" class="big-mail">ankauf@cemesa-immo.de</a>
-
-                    <p class="text-dim" style="margin-top:16px;">
-                        Telefon: <br>
-                        <a href="tel:+4917672762444" class="phone-link">+49 176 72762444</a>
-                    </p>
-                </div>
-
-                <div style="align-self: end;">
-                    <div class="address-box">
-                        <strong class="text-white">Cemesa Immobilien GmbH</strong><br>
-                        Mülheimer Str. 15<br>
-                        45145 Essen<br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-content">
-            <div>&copy; 2025 Cemesa Immobilien GmbH.</div>
-            
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>&copy; 2026 Cemesa Immobilien GmbH.</div>
             <div class="footer-links">
-                
-                <a href="https://primetimesuites.de" target="_blank">
-                    <img src="logo-suites.png" 
-                         alt="Suites" 
-                         class="footer-logo" 
-                         style="height: 70px;"> </a>
-
-                <a href="https://primetimeautomations.de" target="_blank">
-                    <img src="logo-automations.png" 
-                         alt="Automations" 
-                         class="footer-logo" 
-                         style="height: 40px;"> </a>
-                
-                <span onclick="openModal('impressum')">Impressum</span>
-                <span onclick="openModal('datenschutz')">Datenschutz</span>
+                <a href="https://primetimesuites.de" target="_blank" rel="noopener">
+                    <img src="/img/logo-suites-280.png" alt="PrimeTime Suites" class="footer-logo footer-logo--suites" width="128" height="64" decoding="async">
+                </a>
+                <a href="https://primetimeautomations.de" target="_blank" rel="noopener">
+                    <img src="/img/logo-automations-320.png" alt="PrimeTime Automations" class="footer-logo" width="160" height="40" decoding="async">
+                </a>
+                <button type="button" data-modal="impressum">Impressum</button>
+                <button type="button" data-modal="datenschutz">Datenschutz</button>
             </div>
         </div>
     </footer>
 
-    <div id="modal-impressum" class="modal">
+    <dialog id="modal-impressum" class="modal" aria-label="Impressum">
         <div class="modal-box">
-            <span class="close-modal" onclick="closeModal('impressum')">&times;</span>
+            <button type="button" class="close-modal" data-close aria-label="Impressum schließen">&times;</button>
             <h3>Impressum</h3>
             <br>
             <p>
@@ -591,11 +346,11 @@
                 USt-IdNr.: nicht vorhanden
             </p>
         </div>
-    </div>
+    </dialog>
 
-    <div id="modal-datenschutz" class="modal">
+    <dialog id="modal-datenschutz" class="modal" aria-label="Datenschutzerklärung">
         <div class="modal-box">
-            <span class="close-modal" onclick="closeModal('datenschutz')">&times;</span>
+            <button type="button" class="close-modal" data-close aria-label="Datenschutzerklärung schließen">&times;</button>
             <h3>Datenschutz</h3>
             <br>
             <p>Mit dieser Datenschutzerklärung informieren wir Sie darüber, welche personenbezogenen Daten wir beim Besuch dieser Website und bei einer Kontaktaufnahme verarbeiten, zu welchen Zwecken das geschieht und welche Rechte Sie haben.</p>
@@ -680,56 +435,50 @@
             <h4>11. Stand</h4>
             <p>Stand: 7. Oktober 2026. Wir passen diese Datenschutzerklärung an, wenn sich die Website oder die Rechtslage ändert.</p>
         </div>
-    </div>
+    </dialog>
 
     <script>
-        function toggleMenu() {
-            const nav = document.getElementById('mobileNav');
-            const body = document.body;
-            nav.classList.toggle('is-open');
-            body.classList.toggle('nav-open');
-            if(nav.classList.contains('is-open')) {
-                body.style.overflow = 'hidden';
-            } else {
-                body.style.overflow = 'auto';
-            }
+    (function () {
+        // Mobile-Navigation
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = document.getElementById('site-nav');
+        function setNav(open) {
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+            nav.setAttribute('data-open', String(open));
         }
-
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const trigger = item.querySelector('.faq-trigger');
-            const answer = item.querySelector('.faq-answer');
-
-            trigger.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                faqItems.forEach(i => {
-                    i.classList.remove('active');
-                    i.querySelector('.faq-answer').style.maxHeight = null;
-                });
-                if (!isActive) {
-                    item.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                }
-            });
+        toggle.addEventListener('click', function () { setNav(toggle.getAttribute('aria-expanded') !== 'true'); });
+        nav.addEventListener('click', function (e) { if (e.target.closest('a')) setNav(false); });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setNav(false); toggle.focus(); }
         });
 
-        function openModal(id) {
-            document.getElementById('modal-' + id).classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(id) {
-            document.getElementById('modal-' + id).classList.remove('open');
-            document.body.style.overflow = 'auto';
-        }
-
-        window.onclick = function(e) {
-            if (e.target.classList.contains('modal')) {
-                e.target.classList.remove('open');
-                document.body.style.overflow = 'auto';
-            }
-        }
+        // Modals Impressum/Datenschutz (natives <dialog>: Fokus, Esc, Tastatur)
+        window.openModal = function (id) {
+            var m = document.getElementById('modal-' + id);
+            if (!m) return;
+            if (typeof m.showModal === 'function') { if (!m.open) m.showModal(); } else { m.setAttribute('open', ''); }
+            document.documentElement.classList.add('modal-open');
+        };
+        window.closeModal = function (id) {
+            var m = document.getElementById('modal-' + id);
+            if (m && m.open) { if (typeof m.close === 'function') m.close(); else m.removeAttribute('open'); }
+        };
+        document.querySelectorAll('[data-modal]').forEach(function (b) {
+            b.addEventListener('click', function () { openModal(b.getAttribute('data-modal')); });
+        });
+        document.querySelectorAll('dialog.modal').forEach(function (m) {
+            m.addEventListener('close', function () {
+                document.documentElement.classList.remove('modal-open');
+                if (location.hash === '#impressum' || location.hash === '#datenschutz') history.replaceState(null, '', location.pathname);
+            });
+            m.addEventListener('click', function (e) { if (e.target === m || e.target.hasAttribute('data-close')) m.close(); });
+        });
+        // Direktlinks /#impressum und /#datenschutz (z. B. von der 404-Seite)
+        function fromHash() { var h = location.hash.slice(1); if (h === 'impressum' || h === 'datenschutz') openModal(h); }
+        window.addEventListener('hashchange', fromHash);
+        fromHash();
+    })();
     </script>
 </body>
 </html>
-
