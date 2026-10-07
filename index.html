@@ -6,7 +6,7 @@
     <meta name="description" content="CEMESA Immobilien - Ankauf von Wohn- und Geschäftshäusern in NRW. Kapitalstark und Transaktionssicher.">
     <title>CEMESA Immobilien | Investment & Development</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="fonts/inter.css" rel="stylesheet">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect x=%220%22 y=%220%22 width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23cc0000%22/><text x=%2250%25%22 y=%2255%25%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2240%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>C</text></svg>">
 
@@ -201,7 +201,7 @@
             display: flex;
             align-items: center;
             background: linear-gradient(to right, #ffffff 30%, rgba(255,255,255,0.7) 100%),
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+                        url('img/hero.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -340,6 +340,11 @@
             line-height: 1;
         }
 
+        #modal-datenschutz .modal-box { overflow-wrap: break-word; }
+        #modal-datenschutz h4 { margin: 1.2em 0 0.4em; }
+        #modal-datenschutz p, #modal-datenschutz ul { margin-bottom: 0.8em; }
+        #modal-datenschutz ul { list-style: disc; padding-left: 1.2em; }
+
         /* --- 13. MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
             section { padding: var(--p-mobile) 0; }
@@ -349,7 +354,7 @@
 
             #home {
                 background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%),
-                            url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+                            url('img/hero-mobile.jpg');
                 background-position: center center;
                 text-align: left;
                 padding-top: 40px;
@@ -593,11 +598,87 @@
             <span class="close-modal" onclick="closeModal('datenschutz')">&times;</span>
             <h3>Datenschutz</h3>
             <br>
+            <p>Mit dieser Datenschutzerklärung informieren wir Sie darüber, welche personenbezogenen Daten wir beim Besuch dieser Website und bei einer Kontaktaufnahme verarbeiten, zu welchen Zwecken das geschieht und welche Rechte Sie haben.</p>
+
+            <h4>1. Verantwortlicher</h4>
             <p>
-                Diese Webseite dient als Visitenkarte. Es werden keine Cookies oder Tracking-Tools eingesetzt.
-                Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage.
-                Kontakt: ankauf@cemesa-immo.de
+                <strong>Cemesa Immobilien GmbH</strong><br>
+                Mülheimer Str. 15<br>
+                45145 Essen<br>
+                vertreten durch den Geschäftsführer Mert Gülmez<br>
+                Telefon: +49 176 72762444<br>
+                E-Mail: ankauf@cemesa-immo.de
             </p>
+            <p>Einen Datenschutzbeauftragten haben wir nicht benannt, da hierzu für uns keine gesetzliche Pflicht besteht. Bei Fragen zum Datenschutz wenden Sie sich bitte an die oben genannten Kontaktdaten.</p>
+
+            <h4>2. Überblick</h4>
+            <p>Diese Website ist eine reine Informationsseite (Online-Visitenkarte). Wir setzen <strong>keine Cookies</strong>, <strong>keine Analyse- oder Tracking-Tools</strong>, keine Social-Media-Plugins und kein Kontaktformular ein. Schriftarten und Bilder werden von unserem eigenen Webspace geladen; beim Aufruf der Seite werden keine Inhalte von Servern Dritter (z. B. Google) nachgeladen. Die Übertragung erfolgt verschlüsselt (HTTPS).</p>
+
+            <h4>3. Hosting und Server-Logfiles</h4>
+            <p>Diese Website wird über den Dienst GitHub Pages der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (ein Unternehmen der Microsoft-Gruppe) bereitgestellt.</p>
+            <p>Beim Aufruf der Website werden technisch bedingt Daten verarbeitet, die Ihr Browser automatisch übermittelt, in der Regel:</p>
+            <ul>
+                <li>IP-Adresse des anfragenden Geräts</li>
+                <li>Datum und Uhrzeit des Abrufs</li>
+                <li>aufgerufene Datei bzw. Seite und übertragene Datenmenge</li>
+                <li>Browsertyp, Browserversion und Betriebssystem</li>
+                <li>Referrer-URL (zuvor besuchte Seite)</li>
+            </ul>
+            <p>Nach Angaben von GitHub wird die IP-Adresse der Besucher protokolliert und zu Sicherheitszwecken gespeichert. Die Verarbeitung ist erforderlich, um die Website auszuliefern und ihre Stabilität und Sicherheit zu gewährleisten (z. B. Abwehr von Angriffen und Missbrauch).</p>
+            <p><strong>Rechtsgrundlage</strong> ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in einer sicheren, zuverlässigen und wirtschaftlichen Bereitstellung unserer Website.</p>
+            <p>Wir selbst haben keinen Zugriff auf diese Logdaten und führen sie nicht mit anderen Daten zusammen. GitHub verarbeitet diese Daten nach eigenen Angaben auch in eigener Verantwortung, um gesetzliche Pflichten zu erfüllen und die Sicherheit des Dienstes zu gewährleisten; über die Speicherdauer entscheidet GitHub. Einzelheiten finden Sie in der Datenschutzerklärung von GitHub: https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement</p>
+            <p><strong>Übermittlung in die USA:</strong> Bei der Nutzung von GitHub Pages können personenbezogene Daten in die USA übermittelt werden. Für die USA hat die EU-Kommission am 10. Juli 2023 einen Angemessenheitsbeschluss erlassen (Art. 45 DSGVO, EU-US Data Privacy Framework). GitHub, Inc. ist nach dem EU-US Data Privacy Framework zertifiziert (Nachweis: https://www.dataprivacyframework.gov/participant/6174).</p>
+
+            <h4>4. Kontakt per E-Mail oder Telefon, Zusendung von Exposés</h4>
+            <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren oder uns als Eigentümer, Makler oder Vermittler ein Objekt bzw. ein Exposé anbieten, verarbeiten wir die Daten, die Sie uns mitteilen (z. B. Name, Firma, Kontaktdaten, Inhalt Ihrer Nachricht, Objektunterlagen). Wir nutzen diese Daten, um Ihre Anfrage zu bearbeiten, das angebotene Objekt zu prüfen und mit Ihnen zu kommunizieren.</p>
+            <p><strong>Rechtsgrundlage</strong> ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage auf den Abschluss oder die Durchführung eines Vertrags gerichtet ist (z. B. Ankauf einer Immobilie). Im Übrigen ist Rechtsgrundlage Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der Beantwortung von Anfragen und der Prüfung von Ankaufsangeboten.</p>
+            <p>Exposés und Objektunterlagen können personenbezogene Daten Dritter enthalten (z. B. Angaben zu Eigentümern oder Mietern in Mieterlisten). Bitte übermitteln Sie solche Daten nur, soweit sie für eine erste Prüfung erforderlich sind und Sie zur Weitergabe berechtigt sind – nach Möglichkeit anonymisiert. Wir verwenden diese Angaben ausschließlich zur Prüfung des jeweiligen Ankaufs (Art. 6 Abs. 1 lit. f DSGVO).</p>
+            <p>Die Bereitstellung Ihrer Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Ohne Kontaktdaten können wir Ihre Anfrage jedoch nicht beantworten.</p>
+
+            <h4>5. Empfänger</h4>
+            <ul>
+                <li><strong>E-Mail-Dienstleister:</strong> Unsere E-Mails werden über die IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, verarbeitet. IONOS ist für uns als Auftragsverarbeiter tätig (Art. 28 DSGVO).</li>
+                <li><strong>Ankaufsprüfung:</strong> Wird ein Ankauf konkret geprüft oder durchgeführt, geben wir die dafür erforderlichen Daten an die beteiligten Stellen weiter, z. B. finanzierende Banken, Notare, Rechtsanwälte, Steuerberater oder Sachverständige (Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO).</li>
+            </ul>
+            <p>Eine Weitergabe Ihrer Daten zu Werbezwecken oder ein Verkauf von Daten findet nicht statt.</p>
+
+            <h4>6. Speicherdauer</h4>
+            <ul>
+                <li>Allgemeine Anfragen löschen wir, sobald sie abschließend bearbeitet sind und keine weitere Kommunikation zu erwarten ist.</li>
+                <li>Objektangebote und Exposés, die nicht zu einem Ankauf führen, bewahren wir bis zu drei Jahre ab dem Ende des Jahres ihres Eingangs auf. So können wir nachvollziehen, welches Objekt uns wann und von wem angeboten wurde (z. B. zur Prüfung oder Abwehr von Provisionsansprüchen). Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</li>
+                <li>Kommt ein Geschäft zustande, speichern wir die Unterlagen für die Dauer der gesetzlichen Aufbewahrungsfristen von bis zu zehn Jahren (insbesondere § 257 HGB, § 147 AO; Art. 6 Abs. 1 lit. c DSGVO).</li>
+            </ul>
+
+            <h4>7. Ihre Rechte</h4>
+            <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
+            <ul>
+                <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+                <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+                <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+                <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+                <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+            </ul>
+            <p>Zur Ausübung Ihrer Rechte genügt eine formlose Nachricht an die oben genannten Kontaktdaten.</p>
+
+            <h4>8. Widerspruchsrecht (Art. 21 DSGVO)</h4>
+            <p><strong>Soweit wir Ihre Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen diese Verarbeitung einzulegen. Wir verarbeiten Ihre Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen. Der Widerspruch ist formlos möglich, z. B. per E-Mail an ankauf@cemesa-immo.de.</strong></p>
+
+            <h4>9. Beschwerderecht bei der Aufsichtsbehörde</h4>
+            <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO). Für uns zuständig ist:</p>
+            <p>
+                Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen<br>
+                Kavalleriestraße 2–4, 40213 Düsseldorf<br>
+                Postanschrift: Postfach 20 04 44, 40102 Düsseldorf<br>
+                Telefon: 0211 38424-0<br>
+                E-Mail: poststelle@ldi.nrw.de<br>
+                Internet: www.ldi.nrw.de
+            </p>
+
+            <h4>10. Keine automatisierte Entscheidungsfindung</h4>
+            <p>Eine automatisierte Entscheidungsfindung einschließlich Profiling (Art. 22 DSGVO) findet nicht statt.</p>
+
+            <h4>11. Stand</h4>
+            <p>Stand: 7. Oktober 2026. Wir passen diese Datenschutzerklärung an, wenn sich die Website oder die Rechtslage ändert.</p>
         </div>
     </div>
 
